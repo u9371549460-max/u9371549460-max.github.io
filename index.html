@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Klassenraum in 2050 – unser Seminarfachprojekt: Entwürfe für einen nachhaltigen, flexiblen und lernfreundlichen Klassenraum.">
+<title>Klassenraum in 2050 – Seminarfachprojekt</title>
+<style>
+:root{--bg:#F1F0E8;--card:#FFFFFF;--ink:#26291F;--mute:#5C6152;--accent:#55683A;--soft:#DDE3CC;--r:18px}
+[data-theme=salbei]{--bg:#EEF3EA;--accent:#46744A;--soft:#D3E2CC}
+[data-theme=sand]{--bg:#F6EFE3;--accent:#8E5E34;--soft:#E9D8BE}
+[data-theme=blau]{--bg:#ECEEF1;--accent:#2F6A9E;--soft:#D3DCE6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;transition:background .4s}
+a{color:var(--accent)}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--soft);display:flex;gap:6px;overflow-x:auto;padding:10px 14px}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:14px;font-weight:600;padding:6px 12px;border-radius:99px}
+nav a:hover,nav a:focus{background:var(--soft)}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{padding:64px 0 40px;text-align:center}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--soft);padding:5px 14px;border-radius:99px}
+h1{font-size:clamp(42px,12vw,92px);line-height:1;font-weight:900;color:var(--accent);margin:18px 0 14px;letter-spacing:-.02em}
+.hero p{max-width:52ch;margin:0 auto;color:var(--mute);font-size:18px}
+.by{margin-top:18px;font-size:14px;color:var(--mute)}
+section{padding:44px 0;border-top:1px solid var(--soft)}
+h2{font-size:clamp(28px,6vw,40px);line-height:1.15;color:var(--accent);margin-bottom:14px;font-weight:800}
+h3{font-size:19px;margin-bottom:6px}
+.lead{color:var(--mute);font-size:17px;max-width:62ch;margin-bottom:20px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border-radius:var(--r);padding:20px;border:1px solid var(--soft)}
+.card ul{padding-left:18px;margin-top:8px}
+.card li{margin:3px 0}
+.who{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.draft{background:var(--soft);border-radius:var(--r);padding:14px 18px;margin-bottom:22px;font-size:15px}
+.person{margin-top:30px}
+.person>h3{font-size:24px;color:var(--accent);margin-bottom:12px}
+details{background:var(--card);border:1px solid var(--soft);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;font-size:17px}
+details p,details ul{margin-top:10px;color:var(--ink)}
+details ul{padding-left:18px}
+details li{margin:3px 0}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.tl{list-style:none;border-left:3px solid var(--soft);margin-left:6px}
+.tl li{padding:0 0 16px 18px;position:relative}
+.tl li:before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--accent)}
+.tl b{display:block}
+.pick{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 20px}
+.pick button{font:inherit;font-weight:700;border:2px solid var(--soft);background:var(--card);color:var(--ink);padding:10px 16px;border-radius:99px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.pick button[aria-pressed=true]{border-color:var(--accent)}
+.pick i{width:16px;height:16px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.2)}
+.sw{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.sw div{flex:1 1 120px;border-radius:12px;padding:34px 10px 8px;font-size:13px;font-weight:700;text-align:center;border:1px solid rgba(0,0,0,.1)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips span{background:var(--card);border:1px solid var(--soft);border-radius:99px;padding:5px 14px;font-size:14px}
+.src a{word-break:break-all}
+.ch{margin-bottom:22px}
+.ch h3{margin-bottom:10px}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.opts button{font:inherit;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--soft);border-radius:14px;padding:12px 14px;cursor:pointer}
+.opts button b{display:block}
+.opts button span{font-size:14px;color:var(--mute)}
+.opts button[aria-pressed=true]{border-color:var(--accent);background:var(--soft)}
+.res{background:var(--card);border:2px solid var(--accent);border-radius:var(--r);padding:20px}
+.res li{margin:6px 0;list-style:none}
+.res small{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+footer{padding:36px 0 60px;border-top:1px solid var(--soft);font-size:14px;color:var(--mute)}
+footer h3{color:var(--ink);font-size:16px;margin-top:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body data-theme="olive">
+<nav aria-label="Navigation">
+<a href="#idee">Idee</a><a href="#bereiche">Bereiche</a><a href="#auswahl">Dein Raum</a><a href="#farben">Farben</a><a href="#verlauf">Verlauf</a><a href="#reflexion">Reflexion</a><a href="#quellen">Quellen</a>
+</nav>
+
+<header class="hero"><div class="wrap">
+<span class="tag">Seminarfach · IGS Mühlenberg</span>
+<h1>Klassenraum<br>in 2050</h1>
+<p>Wie könnte ein nachhaltiger, praktischer und lernfreundlicher Klassenraum im Jahr 2050 aussehen? Hier findest du unsere Entwürfe zum Nachlesen.</p>
+<p class="by">von Amira, Lilas und Sham</p>
+</div></header>
+
+<main class="wrap">
+
+<section id="idee">
+<h2>Unsere Idee</h2>
+<p class="lead">Wir verbinden flexible Möbel, digitale Unterrichtsmöglichkeiten, reparierbare Bauteile, bewusst geplantes Licht und Pflanzen. Unsere drei Entwürfe sollen zusammenpassen und gemeinsam einen vollständigen Klassenraum ergeben.</p>
+<div class="draft"><b>Wichtig:</b> Alles hier ist ein Zukunftsentwurf. Wir haben die technischen Funktionen und ihr Zusammenspiel noch nicht praktisch überprüft.</div>
+<div class="grid">
+<div class="card"><h3>Was heute schon gut ist</h3><ul><li>Große Fenster mit viel Tageslicht</li><li>Lüftungsanlage und Heizungen vorhanden</li><li>Tische und Stühle, die weiter nutzbar sind</li><li>Viel Platz für gemeinsames Arbeiten</li></ul></div>
+<div class="card"><h3>Was besser werden könnte</h3><ul><li>Mehr Pflanzen und sichtbare Begrünung</li><li>Farbige Wände, gemütliche Lernatmosphäre</li><li>Moderne Tische, Stühle und Deckenlampen</li><li>Orte zum Entspannen und Zurückziehen</li></ul></div>
+</div>
+<p class="note">Wir möchten vorhandene Möbel und Geräte möglichst weiternutzen und langlebige, reparierbare Einrichtung bevorzugen.</p>
+</section>
+
+<section id="bereiche">
+<h2>Unsere Bereiche</h2>
+<p class="lead">Jede von uns hat einen Teil des Raumes entworfen. Tippe auf einen Bereich, um Details zu lesen.</p>
+
+<div class="person"><h3>Sham – Tür, Decke, Fenster</h3>
+<details><summary>Intelligente Klassenzimmertür</summary>
+<p>Automatische, zweiflügelige Glasschiebetür. Beim Öffnen verschwinden die Flügel seitlich in der Wand. Ein Rahmen aus hellem europäischem Eichenholz ergänzt das Glas. Inspiriert von hellen, offenen skandinavischen Schulen.</p>
+<ul><li>Schaltbares PDLC-Glas: durchsichtig oder milchig als Sichtschutz</li><li>Steuerung per Schalter oder Lehrerpult, Anzeige wie „Prüfung – Bitte nicht stören“</li><li>Zugang für Lehrkräfte per PIN oder optional Fingerabdruck</li><li>Zugang für Schüler per Schülerkarte oder digitalem Ausweis</li><li>Mögliche Vormerkung der Anwesenheit, die die Lehrkraft bestätigt</li><li>Sensoren im Türbereich und eine geeignete Notöffnung</li></ul>
+<p class="note">Beschusshemmendes Glas und eine Verbindung zum Alarmsystem sind nur Zukunftsideen. Glas, Antrieb, Fluchtweg und Zugangssystem müssten fachlich geprüft werden, ebenso der Datenschutz. Einen verlässlichen Gesamtpreis konnten wir nicht ermitteln.</p></details>
+<details><summary>Decke und Beleuchtung</summary>
+<p>Inspiriert von runden LED-Leuchten und hängenden Rankpflanzen.</p>
+<ul><li>Sechs kleinere LED-Leuchten und eine größere in der Mitte</li><li>Tageslichtabhängige Dimmung und Präsenzsensoren, zusätzlich manuell über das Lehrerpult</li><li>Indirekte LED-Lichtleisten</li><li>Rankpflanzen entlang der Deckenkanten, Pflanzkästen hinter einer Verkleidung</li><li>Bewässerung über einen erreichbaren Wassertank im Technikschrank, Pumpe und dünne Leitungen, mit Feuchtigkeits-, Füllstands- und Lecksensor sowie Auffangwannen</li></ul>
+<p class="note">Die Pflanzen müssen weiter gepflegt und der Tank nachgefüllt werden. Tragfähigkeit, Brandschutz, Wartung und die Trennung von Wasser und Elektrik müssten geprüft werden. Anfangs sollten die Pflanzen direkt um die Lampen wachsen; später haben wir beides getrennt und die Begrünung an die Deckenkanten gelegt.</p></details>
+<details><summary>Fenster</summary>
+<p>Das Fensterkonzept ist an die Tür angelehnt: Fensterantriebe zum Lüften und elektrochromes Glas, das sich abdunkeln lässt. Das schaltbare Glas der Tür (PDLC) hat eine andere Aufgabe, nämlich den Sichtschutz.</p></details></div>
+
+<div class="person"><h3>Lilas – Wand, Tische, Stühle</h3>
+<details><summary>Drehbare Multifunktionswand</summary>
+<p>Eine Wand mit zwei Seiten, die sich per Knopfdruck um 180 Grad drehen soll.</p>
+<ul><li>Vorderseite: große interaktive digitale Tafel</li><li>Rückseite: Schranksystem mit zehn großen Fächern</li><li>In jedes Fach passen drei zusammengeklappte Tische und drei Stühle, also 30 Sets</li></ul>
+<p class="note">Vorteil: mehr freie Fläche und kein zusätzlicher Lagerraum. Maße, Gewicht, Drehmechanismus und sichere Bedienung sind noch zu prüfen.</p></details>
+<details><summary>Klappbare Schülertische</summary>
+<ul><li>Integriertes Touchdisplay, Anmeldung per Fingerabdruck oder PIN</li><li>Notizen sollen über iServ gespeichert werden</li><li>Klappbare Tischfläche, Rollen mit Feststellbremsen</li></ul></details>
+<details><summary>Schülerstühle</summary>
+<ul><li>Ergonomische Rückenlehne, bequeme gepolsterte Sitzfläche</li><li>Ausziehbare Fußstütze, zusammenklappbar und platzsparend</li><li>Rollen mit Feststellbremsen</li><li>Austauschbare Polster und langlebige Materialien</li></ul></details>
+<details><summary>Flexible Sitzordnungen</summary>
+<p>Durch die Tischform lassen sich viele Anordnungen bilden:</p>
+<div class="chips"><span>Einzelarbeit</span><span>Reihe</span><span>Kreis</span><span>Halbkreis</span><span>U-Form</span><span>8er-Oval</span><span>4er-Blume</span><span>6er-Blume</span><span>Quadrat</span><span>Kompakte Doppelreihe</span></div></details></div>
+
+<div class="person"><h3>Amira – Lehrerpult, Lernwand, Müllstation</h3>
+<details><summary>Lehrerpult und Lehrerstuhl</summary>
+<ul><li>Abgerundete helle Holzplatte, höhenverstellbare Beine</li><li>Neigbares Laptopbrett mit Stauraum, umstellbare Ablagen</li><li>Grünlilie und Holzkiste, kabellose Handy-Ladefläche</li><li>Touchfeld als Dashboard und neigbarer Unterrichtsbildschirm</li><li>Ausziehbares Technikfach mit austauschbaren Modulen</li></ul>
+<p>Das Dashboard bündelt Unterrichtsplanung, Klassenbuch, Schulinfos, geschützte Schülerinfos, Präsentationen, Fokus, Stundenabschluss und individuelle Lernwege. Die Lehrkraft entscheidet, was auf gemeinsamen Bildschirmen erscheint.</p>
+<p><b>Lehrerstuhl:</b> geschwungene grüne Polsterlehne, verstellbare Sitzhöhe und Neigung, Rollen. Eine freiwillig aktivierbare Sensorfunktion könnte an Pausen erinnern. Polster, Rollen und Mechanik sind einzeln austauschbar.</p></details>
+<details><summary>Lernwand 2050 und Raumklima</summary>
+<ul><li>Wissensregal für Geschichte, Biologie und Mathe, geöffnet auf vorhandenen iPads</li><li>Acht VR-Leihbrillen und ein abschließbares Fach für Ersatz-iPads</li><li>Reparatur-Rückgabe mit klappbarer Arbeitsfläche</li><li>Zwei Pflanzebenen für Kräuter und Salat mit eigener Bewässerung</li><li>Gepolsterte Ruhe- und Leseecke mit Filzflächen</li><li>Klima-Anzeige für Temperatur, Luftfeuchtigkeit und CO₂, die zum Lüften auffordert. So lassen sich Werte vor und nach dem Lüften vergleichen.</li></ul>
+<p class="note">Frühere Pfeile für Frisch- und Abluft haben wir entfernt, weil wir die tatsächliche Luftströmung nicht untersucht haben.</p></details>
+<details><summary>Müllstation</summary>
+<ul><li>Getrennte Einwürfe für Verpackungen und Restmüll, herausnehmbare Behälter</li><li>Waagen für die Tagesmenge, Display und Füllstandssensoren</li><li>Abschließbares Fach für Elektro-Kleinteile</li></ul>
+<p class="note">Die angezeigten 2,4 kg sind nur ein Beispielwert. Für Papier und Bioabfall wäre eine zusätzliche Sammlung nötig. Reparierbare Geräte gehen zuerst zur Lernwand.</p></details></div>
+</section>
+
+<section id="farben">
+<h2>Farben und Materialien</h2>
+<p class="lead">Probier aus, welche Farbstimmung dir für einen Klassenraum am besten gefällt. Die ganze Seite passt sich an.</p>
+<div class="pick" role="group" aria-label="Farbstimmung wählen">
+<button type="button" data-t="olive" aria-pressed="true"><i style="background:#55683A"></i>Olivgrün</button>
+<button type="button" data-t="salbei" aria-pressed="false"><i style="background:#A9C7A0"></i>Salbeigrün</button>
+<button type="button" data-t="sand" aria-pressed="false"><i style="background:#DFCDB0"></i>Sandbeige &amp; Holz</button>
+<button type="button" data-t="blau" aria-pressed="false"><i style="background:#2F6A9E"></i>Hellgrau &amp; Blau</button>
+</div>
+<div class="sw">
+<div style="background:#5A6E3E;color:#fff">Olivgrün</div><div style="background:#A9C7A0">Salbeigrün</div><div style="background:#DFCDB0">Sandbeige</div><div style="background:#CACBCF">Hellgrau</div><div style="background:#C9A06E">Holzbeige</div><div style="background:#8A5A3C;color:#fff">Braun</div><div style="background:#ABABAB">Silber</div><div style="background:#F6C945">Gelb</div><div style="background:#EA8138">Orange</div><div style="background:#3E7DBF;color:#fff">Blau</div>
+</div>
+<div class="grid">
+<div class="card"><h3>Materialien</h3><div class="chips"><span>Europäisches Eichenholz</span><span>Recyceltes Aluminium, schwarz beschichtet</span><span>Geeignete Verglasungen</span><span>Polsterstoff</span><span>Filz</span></div></div>
+<div class="card"><h3>Gläser</h3><p>Die Tür nutzt schaltbares PDLC-Glas als Sichtschutz. Die Angaben zu elektrochromem Glas gehören zum Fensterkonzept.</p></div>
+</div>
+</section>
+
+<section id="auswahl">
+<h2>Dein Klassenraum 2050</h2>
+<p class="lead">Was gefällt dir am besten? Wähle bei jeder Frage eine Idee und stelle dir deinen eigenen Klassenraum zusammen.</p>
+<div id="quiz"></div>
+<div class="res" id="res" aria-live="polite"></div>
+<p class="note">Deine Auswahl bleibt nur auf deinem Gerät und wird nicht gespeichert oder gesendet.</p>
+</section>
+
+<section id="verlauf">
+<h2>Projektverlauf</h2>
+<ol class="tl">
+<li><b>September: Themenfindung</b>Ursprünglich wollten wir die ganze Schule 2050 darstellen, dann einen naturwissenschaftlichen Raum. Nach Rücksprache mit unserer Tutorin entschieden wir uns für einen normalen Klassenraum.</li>
+<li><b>Ende September: erste Ideen</b>Recherche zu skandinavischen Schulen und beruhigenden Farben. Farbvarianten haben wir zuerst mit KI-generierten Bildern veranschaulicht.</li>
+<li><b>Anfang Oktober: Aufgabenverteilung</b>Lilas: Tische, Stühle, Tafel. Amira: hintere Wand, Lehrerpult, Lehrerstuhl. Sham: Tür, Fenster, Decke.</li>
+<li><b>Oktober: Konzepte und 3D-Versuche</b>Erste Versuche mit 3D-Programmen waren schwierig. Die Anfrage zur VR-Brille ergab: Nutzung für Februar geplant.</li>
+<li><b>November: Fertigstellung</b>Wir haben die 3D-Modellierung wegen Zeitmangel verschoben und uns auf die Raumkonzepte, Skizzen und die Präsentation konzentriert.</li>
+</ol>
+<p class="note">Eigene Zeichnungen, Versuche mit Raumgestaltungs-Programmen (Hunyuan 3D, SketchUp, Homestyler) und KI-unterstützte Darstellungen haben wir in unserer Dokumentation getrennt gekennzeichnet.</p>
+</section>
+
+<section id="reflexion">
+<h2>Reflexion</h2>
+<div class="grid">
+<div class="card"><h3>Schwierig war</h3><ul><li>Anfangs unklare, zu große Projektidee</li><li>Planung und Aufgabenverteilung</li><li>Zeitdruck und Zeitmanagement</li><li>Technische Hürden bei der 3D-Modellierung</li><li>Kosten: zuerst bedacht, später nicht weiterverfolgt</li></ul></div>
+<div class="card"><h3>Gut gelaufen ist</h3><ul><li>Beratung durch unsere Tutorin</li><li>Eingrenzung des Themas</li><li>Gemeinsame Lösungen trotz Schwierigkeiten</li><li>Aufteilung der Raumbereiche</li><li>Fertige Konzepte und Skizzen</li></ul></div>
+<div class="card"><h3>Was wir verändert haben</h3><ul><li>Von der ganzen Schule zum Klassenraum</li><li>Pflanzen von den Lampen an die Deckenkanten</li><li>Luftströmungs-Pfeile entfernt, weil nicht untersucht</li></ul></div>
+<div class="card"><h3>Offene Fragen</h3><ul><li>Sicherheit, Brandschutz und Fluchtwege bei der Tür</li><li>Datenschutz bei Zugang und Anwesenheit</li><li>Statik, Gewicht und Bedienung der Drehwand</li><li>Wasser und Elektrik an der Decke</li><li>Gesamtkosten</li></ul></div>
+</div>
+</section>
+
+<section id="quellen" class="src">
+<h2>Quellen</h2>
+<p class="lead">Eine Auswahl. Die Links führen auf externe Seiten, die wir nicht betreiben.</p>
+<ul style="padding-left:18px">
+<li>Umweltbundesamt: <a href="https://www.umweltbundesamt.de/richtig-lueften-in-schulen" rel="noopener noreferrer">Richtig lüften in Schulen</a></li>
+<li>Umweltbundesamt: <a href="https://www.umweltbundesamt.de/umwelttipps-fuer-den-alltag/produkte-laenger-nutzen-sachgerechter-gebrauch" rel="noopener noreferrer">Produkte länger nutzen</a></li>
+<li>DGUV: <a href="https://publikationen.dguv.de/regelwerk/dguv-informationen/409/bildschirm-und-bueroarbeitsplaetze-leitfaden-fuer-die-gestaltung" rel="noopener noreferrer">Bildschirm- und Büroarbeitsplätze</a></li>
+<li>Verbraucherzentrale NRW: <a href="https://www.verbraucherzentrale.nrw/sites/default/files/2020-08/Nix-kommt-weg_Aktionen-und-Bildungsma%C3%9Fnahmen_VZNRW.pdf" rel="noopener noreferrer">„Nix kommt weg“</a></li>
+<li>Umweltbundesamt: <a href="https://www.umweltbundesamt.de/daten/umweltzustand-trends/ressourcen-abfall/verwertung-entsorgung-ausgewaehlter-abfallarten/elektro-elektronikaltgeraete" rel="noopener noreferrer">Elektro- und Elektronikaltgeräte</a></li>
+<li>BAuA: <a href="https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A2-3" rel="noopener noreferrer">ASR A2.3 Fluchtwege und Notausgänge</a></li>
+<li>EU-Datenschutz-Grundverordnung: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679" rel="noopener noreferrer">Verordnung (EU) 2016/679</a></li>
+<li>Inspiration: <a href="https://dac.dk/en/magazine/places/orestad-gymnasium-high-school-without-borders-101" rel="noopener noreferrer">Ørestad Gymnasium</a> und <a href="https://verstasarkkitehdit.fi/projects/saunalahti-school/" rel="noopener noreferrer">Saunalahti School</a></li>
+</ul>
+<p class="note">Die vollständige Quellenliste steht in unserer Präsentation und in der Dokumentation.</p>
+</section>
+</main>
+
+<footer><div class="wrap">
+<b>Klassenraum in 2050</b> – ein Schulprojekt, nicht kommerziell.
+<h3>Verantwortlich</h3>
+<p>Amira, IGS Mühlenberg<br>E-Mail: [E-Mail-Adresse hier eintragen]</p>
+</div></footer>
+
+<script>
+(function(){
+var b=document.querySelectorAll(".pick button");
+b.forEach(function(x){x.addEventListener("click",function(){
+document.body.setAttribute("data-theme",x.getAttribute("data-t"));
+b.forEach(function(y){y.setAttribute("aria-pressed",y===x?"true":"false")});
+});});
+})();
+var Q=[
+{t:"Wie möchtest du sitzen?",o:[["Kreis","Alle sehen sich, gut für Gespräche"],["U-Form","Freie Mitte für Präsentationen"],["4er-Blume","Gruppenarbeit an zusammengestellten Tischen"],["Reihe","Ruhig und konzentriert arbeiten"]]},
+{t:"Welche Pflanzen willst du im Raum?",o:[["Rankpflanzen an der Decke","Grün an den Deckenkanten mit automatischer Bewässerung"],["Kräuter und Salat","Auf zwei Ebenen an der Lernwand säen und ernten"],["Beides","Grüner Raum von oben bis zur Lernwand"]]},
+{t:"Was brauchst du zum Lernen?",o:[["Wissensregal","Geschichte, Bio und Mathe auf dem iPad öffnen"],["VR-Leihbrille","Eine von acht Brillen ausleihen"],["Ruhe- und Leseecke","Gepolsterte Nische mit Filzflächen"]]},
+{t:"Welche Idee findest du am spannendsten?",o:[["Drehbare Wand","Tafel vorn, 30 Tisch-Stuhl-Sets verstaut hinten"],["Schaltbares Türglas","Mit einem Knopf durchsichtig oder milchig"],["Klima-Anzeige","Zeigt CO₂ und sagt, wann gelüftet wird"],["Müllstation","Wiegt und trennt, mit Fach für Elektro-Kleinteile"]]}
+];
+var pick={};
+function render(){
+var qz=document.getElementById("quiz");qz.innerHTML="";
+Q.forEach(function(q,i){
+var d=document.createElement("div");d.className="ch";
+var h=document.createElement("h3");h.textContent=(i+1)+". "+q.t;d.appendChild(h);
+var g=document.createElement("div");g.className="opts";
+q.o.forEach(function(o,j){
+var b=document.createElement("button");b.type="button";
+b.setAttribute("aria-pressed",pick[i]===j?"true":"false");
+var n=document.createElement("b");n.textContent=o[0];
+var s=document.createElement("span");s.textContent=o[1];
+b.appendChild(n);b.appendChild(s);
+b.addEventListener("click",function(){pick[i]=j;render();});
+g.appendChild(b);});
+d.appendChild(g);qz.appendChild(d);});
+var r=document.getElementById("res");r.innerHTML="";
+var h2=document.createElement("h3");h2.textContent="Dein Klassenraum 2050";r.appendChild(h2);
+var ul=document.createElement("ul");var cnt=0;
+Q.forEach(function(q,i){
+var li=document.createElement("li");var sm=document.createElement("small");sm.textContent=q.t;
+var tx=document.createElement("span");
+if(pick[i]!==undefined){cnt++;tx.textContent=q.o[pick[i]][0]+": "+q.o[pick[i]][1];}else{tx.textContent="noch offen";}
+li.appendChild(sm);li.appendChild(tx);ul.appendChild(li);});
+r.appendChild(ul);
+if(cnt===Q.length){var p=document.createElement("p");p.textContent="Fertig! Mach gern einen Screenshot und vergleiche mit deiner Klasse.";r.appendChild(p);}
+}
+render();
+</script>
+</body>
+</html>
